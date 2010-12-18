@@ -1,7 +1,7 @@
 # Matthew Henderson, 18.12.2010 (Chandlers Ford)
 
 class latin():
-
+    """This is a component for building latin square objects."""
     def __init__(self, fixed, size):
         self.__size__ = size
         self.__fixed__ = fixed
