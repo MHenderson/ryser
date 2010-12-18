@@ -3,7 +3,7 @@
 Introduction
 ============
 
-RYSA is a Python package for modelling latin squares and related combinatorial
+Rysa is a Python package for modelling latin squares and related combinatorial
 designs. The author is especially interested in specializations of latin
 squares, notably Gerechte designs and Sudoku puzzles. Other structures of 
 interest are Room squares and magic squares.
