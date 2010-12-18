@@ -5,6 +5,7 @@ import unittest
 import rysa.designs
 
 class TestLatin(unittest.TestCase):
+    """Testing of latin square components."""
 
     def setUp(self):
         self.P = { (0,0): 'a', (0,1): 'b', (0,2): 'c', \

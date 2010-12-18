@@ -20,6 +20,7 @@ Contents:
    intro
    tutorial
    modules
+   tests
 
 Indices and tables
 ==================
