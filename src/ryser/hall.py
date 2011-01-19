@@ -11,11 +11,6 @@ def hall_inequality_on_cells_g(graph, lists, size, cells):
     colors = range(1, size + 1)
     return hall_inequality_induced_by(graph, lists, colors, vertices)
 
-###########################################################################
-# Convenience versions of halls_condition_on_cells_g. Incorporating graph
-# construction.
-###########################################################################
-
 def hall_inequality_on_cells(partial_latin_square, size, cells):
     """Decide whether Hall's condition is satisfied for cells."""
     graph = latin_graph(size)

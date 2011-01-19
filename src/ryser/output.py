@@ -28,4 +28,3 @@ def dict_to_string_std(fixed, nrows, ncols, padding = 0):
     row_sep = '\n' + (2*ncols + 1)*'-' + '\n'
     col_sep = '|'
     return dict_to_string(fixed, nrows, ncols, padding, row_sep, col_sep)
-

@@ -1,7 +1,3 @@
-###############################################
-# Special functions for partial latin squares
-###############################################
-
 # Below, 'size' is the dimension of a latin square.
 # Rows and columns are labelled: 0, 1, ... , size - 1
 # Cells are labelled: 1, 2, ... , size^2

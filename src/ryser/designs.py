@@ -26,4 +26,3 @@ class gerechte():
 
 class sudoku():
     pass
-
