@@ -2,15 +2,13 @@
 
 import unittest
 
-from ryser.designs import latin
+from ryser.designs import Latin
 
-from tests import test_data
-        
 P = { (0,0): 'a', (0,1): 'b', (0,2): 'c', \
       (1,0): 'b', (1,1): 'c', (1,2): 'a', \
       (2,0): 'c', (2,1): 'a', (2,2): 'b' }
 
-L = latin(P, (3, 3))
+L = Latin(P, (3, 3))
 
 class TestLatin(unittest.TestCase):
     """Testing of latin square components."""
