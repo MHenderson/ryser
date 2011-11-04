@@ -6,11 +6,10 @@ from ryser.utils import list_assignment, vertex
 
 def hall_inequality_on_cells_g(graph, lists, size, cells):
     """Decide if Hall's condition is satisfied for the subgraph of the latin
-    graph induced by vertices in 'cells' with the usual list assignment for
-    partial latin squares."""
+    graph induced by vertices in 'cells' and list assignment given by 'lists'."""
     vertices = [vertex(cell, size) for cell in cells]
-    colors = range(1, size + 1)
-    return hall_inequality_induced_by(graph, lists, colors, vertices)
+    colours = range(1, size + 1)
+    return hall_inequality_induced_by(graph, lists, colours, vertices)
 
 def hall_inequality_on_cells(partial_latin_square, size, cells):
     """Decide whether Hall's condition is satisfied for cells."""
@@ -29,8 +28,16 @@ def hall_numbers(partial_latin_square, size, cells):
     """Returns a list of Hall numbers for the subgraph induced by cells in
     cells."""
     cell_vertices = [vertex(x, size) for x in cells]
-    H = symmetric_latin_graph(size).subgraph(cell_vertices)
+    H = latin_graph(size).subgraph(cell_vertices)
     L = list_assignment(partial_latin_square, size)
     colours = range(1, size + 1)
     return _hall_numbers_(H, L, colours)
 
+def symmetric_hall_numbers(partial_latin_square, size, cells):
+    """Returns a list of Hall numbers for the subgraph induced by cells in
+    cells."""
+    cell_vertices = [vertex(x, size) for x in cells]
+    H = symmetric_latin_graph(size).subgraph(cell_vertices)
+    L = list_assignment(partial_latin_square, size)
+    colours = range(1, size + 1)
+    return _hall_numbers_(H, L, colours)
