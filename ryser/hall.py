@@ -1,8 +1,12 @@
 from vizing.hall import hall_inequality_induced_by
 from vizing.hall import hall_numbers as _hall_numbers_
+from vizing.utils import support_subgraph
 
 from ryser.graphs import latin_graph, symmetric_latin_graph
 from ryser.utils import list_assignment, vertex 
+
+import matplotlib.pyplot as plt
+from networkx import draw_circular
 
 def hall_inequality_on_cells_g(graph, lists, size, cells):
     """Decide if Hall's condition is satisfied for the subgraph of the latin
@@ -41,3 +45,16 @@ def symmetric_hall_numbers(partial_latin_square, size, cells):
     L = list_assignment(partial_latin_square, size)
     colours = range(1, size + 1)
     return _hall_numbers_(H, L, colours)
+
+def hall_subgraphs(partial_latin_square, size, cells):
+    """Draw Hall subgraphs."""
+    cell_vertices = [vertex(x, size) for x in cells]
+    H = symmetric_latin_graph(size).subgraph(cell_vertices)
+    L = list_assignment(partial_latin_square, size)
+    for i in range(1, size + 1):
+      Hi = support_subgraph(H, L, i)
+      if Hi.number_of_nodes() > 0:
+        draw_circular(Hi)
+        plt.savefig("graph" + str(i) + ".png")
+        plt.clf()
+
