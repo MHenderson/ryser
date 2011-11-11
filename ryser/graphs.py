@@ -4,7 +4,7 @@ def latin_graph(size):
     """The cartesian product of the complete graph with 'size' vertices with
     itself."""
     K = networkx.complete_graph(size)
-    return networkx.cartesian_product(K,K)
+    return networkx.cartesian_product(K, K)
 
 def symmetric_latin_graph(size):
     """The graph described on p.20 of 
