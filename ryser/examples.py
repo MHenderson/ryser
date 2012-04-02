@@ -77,27 +77,46 @@ fail1 = [[1,2, \
           37,39,40,41,42, \
           46,47,48,49]]
 
-fail2 = [[39, 47, 7, 15, 23, 31], \
-         [40, 48, 8, 16, 24, 32], \
-         [39, 40, 47, 7, 8, 15, 16, 23, 24, 31, 32],  \
-         [39, 40, 48, 7, 8, 15, 16, 23, 24, 31, 32],  \
-         [39, 47, 48, 7, 8, 15, 16, 23, 24, 31, 32],  \
-         [40, 47, 48, 7, 8, 15, 16, 23, 24, 31, 32],  \
-         [39, 40, 47, 48, 7, 8, 15, 16, 23, 24, 31],  \
-         [39, 40, 47, 48, 7, 8, 15, 16, 23, 24, 32],  \
-         [39, 40, 47, 48, 7, 8, 15, 16, 23, 31, 32],  \
-         [39, 40, 47, 48, 7, 8, 15, 16, 24, 31, 32],  \
-         [39, 40, 47, 48, 7, 8, 15, 23, 24, 31, 32],  \
-         [39, 40, 47, 48, 7, 8, 16, 23, 24, 31, 32],  \
-         [39, 40, 47, 48, 7, 15, 16, 23, 24, 31, 32], \
-         [39, 40, 47, 48, 8, 15, 16, 23, 24, 31, 32], \
-         [39, 40, 47, 48, 7, 8, 15, 16, 23, 24, 31, 32]]
+from ryser.utils import col_r
+import itertools
 
-fail3 = [[39, 40, 47, 48, 5, 6, 7, 8, 13, 14, 15, 16, 21, 22, 23, 24], \
-         [29, 31, 32, 39, 40, 5, 7, 8, 13, 15, 16, 21, 23, 24], \
-         [30, 31, 32, 47, 48, 6, 7, 8, 14, 15, 16, 22, 23, 24], \
-         [29, 30, 31, 32, 39, 40, 47, 48, 5, 6, 7, 8, 13, 14, 15, 16], \
-         [29, 30, 31, 32, 39, 40, 47, 48, 5, 6, 7, 8, 21, 22, 23, 24], \
-         [29, 30, 31, 32, 39, 40, 47, 48, 13, 14, 15, 16, 21, 22, 23, 24], \
-         [29, 30, 31, 32, 39, 40, 47, 48, 5, 6, 7, 8, 13, 14, 15, 16, 21, 22, 23, 24]]
+# A first attempt at generalisation.
+# Here fail2 consists of the following 4 elements from an 8 x 8 matrix labelled
+# 1,..,64 across rows from top-left to bottom-right.
+#   * The first 6 rows of the second last column.
+#   * The first 6 rows of the last column.
+#   * The first 6 rows of the last two columns.
+#   * All subsets of the first 6 rows of the last two columns which contain
+#     exactly 11 elements.
+
+fail2 = [col_r(7,8)[:-2], \
+         col_r(8,8)[:-2], \
+         col_r(7,8)[:-2] + col_r(8,8)[:-2]] + \
+        [list(x) for x in itertools.combinations(col_r(7,8)[:-2] + col_r(8,8)[:-2], 11)]
+
+# fail3 consists of the following 7 elements:
+#    * The top right block (TR) plus the top right block B1 of the
+#      bottom right block (BR) as well as:
+#      * all subsets we get from this set by removing a column from TR.
+#    * TR minus the first column (TRmc1) plus the first row of B1.
+#    * TR minus the second column (TRmc2) plus the second row of B1.
+
+B1 = [39,40,47,48]
+r1 = [5,6,7,8]
+r2 = [13,14,15,16]
+r3 = [21,22,23,24]
+r4 = [29,30,31,32]
+c2 = [6,14,22,30]
+c1 = [5,13,21,29]
+TR = r1 + r2 + r3 + r4
+TRmc1 = [x for x in TR if x not in c1]
+TRmc2 = [x for x in TR if x not in c2]
+
+fail3 = [ B1 + r1 + r2 + r3, \
+          B1 + r1 + r2 + r4, \
+          B1 + r1 + r3 + r4, \
+          B1 + r2 + r3 + r4, \
+          B1 + r1 + r2 + r3 + r4, \
+          TRmc2 + [39, 40], \
+          TRmc1 + [47, 48]]
 
