@@ -2,13 +2,17 @@
 # Rows and columns are labelled: 0, 1, ... , size - 1
 # Cells are labelled: 1, 2, ... , size^2
 
+def cell(row, column, size):
+    """The label of the cell in position (row, col)."""
+    return (row * size) + column + 1
+
 def row(cell, size): 
-    """The row label of the row in a latin square of dimension 'size'
+    """The row label of the row in a square of dimension 'size'
     containing the cell with label 'cell'."""
     return int((cell - 1)/size) 
 
 def col(cell, size): 
-    """The column label of the column in a latin square of dimension 'size'
+    """The column label of the column in a square of dimension 'size'
     containing the cell with label 'cell'."""
     return (cell - 1) % size
 
@@ -23,6 +27,14 @@ def col_r(cell, size):
 def vertex(cell, size):
     """The row and column labels of 'cell', as a pair."""
     return (row(cell, size), col(cell, size))
+
+def rect_r(tl, br, size):
+    """A rectangular range which extends from tl in the top-left to br in the
+    bottom right."""
+    (i,j) = vertex(tl, size)
+    (k,l) = vertex(br, size)
+    cells = [(x,y) for x in range(i, k+1) for y in range(j, l+1)]
+    return map(lambda x: cell(x[0], x[1], 12), cells)
 
 def list_assignment(partial_latin_square, size):
     """The (canonical) list assignment for a partial latin square. The list of

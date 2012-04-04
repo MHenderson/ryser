@@ -7,7 +7,7 @@ from ryser.utils import list_assignment, vertex
 
 import matplotlib.pyplot as plt
 from networkx import draw_circular as draw
-from networkx import maximal_independent_set, write_graphml
+from networkx import maximal_independent_set, write_graphml, write_dot
 
 def hall_inequality_on_cells_g(graph, lists, size, cells):
     """Decide if Hall's condition is satisfied for the subgraph of the latin
@@ -48,7 +48,7 @@ def symmetric_hall_numbers(partial_latin_square, size, cells):
     return _hall_numbers_(H, L, colours)
 
 def hall_subgraphs(partial_latin_square, size, cells, with_labels = False, format = 'png'):
-    """Draw Hall subgraphs."""
+    """Draw symmetric Hall subgraphs."""
     cell_vertices = [vertex(x, size) for x in cells]
     H = symmetric_latin_graph(size).subgraph(cell_vertices)
     L = list_assignment(partial_latin_square, size)
@@ -64,6 +64,10 @@ def hall_subgraphs(partial_latin_square, size, cells, with_labels = False, forma
           draw(Hi, node_color = node_color, with_labels = with_labels)
           plt.savefig("graph" + str(i) + ".png")
           plt.clf()
-        else:
+        elif format == 'graphml':
           write_graphml(Hi, "graph" + str(i) + ".graphml")
+        elif format == 'dot':
+          write_dot(Hi, "graph" + str(i) + ".dot")
+        else:
+          raise "No such format"
 

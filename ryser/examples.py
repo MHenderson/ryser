@@ -177,6 +177,8 @@ eg4 = Example(
 
 Example 5
 
+This is Type 2, Case 1
+
   2  6  7  8  9 10 11 12  .  .  .  .
   6  2  8  7 10  9 12 11  .  .  .  .
   7  8  1  6 11 12  9 10  .  .  .  .
@@ -207,6 +209,8 @@ eg5 = Example(
 """
 
 Example 6
+
+This is Type 2, Case 2
 
   4  1  2 10 11 12  .  .  .  .  .  .
   1  5 10 11 12  2  .  .  .  .  .  .
