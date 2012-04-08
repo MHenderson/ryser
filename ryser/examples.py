@@ -126,6 +126,8 @@ fail3 = temp + [
 """
 Example 3
 
+This is Type 1, Case 2
+
  2 1 3 4 . . . .
  1 3 2 6 . . . .
  3 2 4 1 . . . .
@@ -152,6 +154,8 @@ fail4 = [ TRr + B1 ]
 """
 Example 4
 
+This is Type 2, Case 1
+
  1 2 3 5 . . . .
  2 1 3 6 . . . .
  3 1 4 2 . . . .
@@ -177,7 +181,7 @@ eg4 = Example(
 
 Example 5
 
-This is Type 2, Case 1
+This is Type 1, Case 1
 
   2  6  7  8  9 10 11 12  .  .  .  .
   6  2  8  7 10  9 12 11  .  .  .  .
@@ -237,4 +241,7 @@ eg6 = Example(
        80: 1,  91: 1, \
       106: 1, 117: 1, \
       132: 2, 143: 2}, size = 12)
+
+from ryser.utils import rect_r
+fail6 = [rect_r(7, 72, 12) + rect_r(83, 96, 12) + rect_r(107, 120, 12)]
 
