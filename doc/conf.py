@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# Rysa documentation build configuration file, created by
+# Ryser documentation build configuration file, created by
 # sphinx-quickstart on Sat Dec 18 15:24:31 2010.
 #
 # This file is execfile()d with the current directory set to its containing dir.
@@ -16,9 +16,8 @@ import sys, os
 # If extensions (or modules to document with autodoc) are in another directory,
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
-sys.path.append(os.path.abspath('../src'))
-sys.path.append(os.path.abspath('../src/rysa'))
-sys.path.append(os.path.abspath('../src/tests'))
+sys.path.append(os.path.abspath('../ryser'))
+sys.path.append(os.path.abspath('../tests'))
 
 # -- General configuration -----------------------------------------------------
 
@@ -40,7 +39,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'Rysa'
+project = u'Ryser'
 copyright = u'2010, Matthew Henderson'
 
 # The version info for the project you're documenting, acts as replacement for
@@ -175,7 +174,7 @@ html_static_path = ['_static']
 #html_file_suffix = ''
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'Rysadoc'
+htmlhelp_basename = 'Ryserdoc'
 
 
 # -- Options for LaTeX output --------------------------------------------------
@@ -189,7 +188,7 @@ htmlhelp_basename = 'Rysadoc'
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, documentclass [howto/manual]).
 latex_documents = [
-  ('index', 'Rysa.tex', u'Rysa Documentation',
+  ('index', 'Ryser.tex', u'Ryser Documentation',
    u'Matthew Henderson', 'manual'),
 ]
 

@@ -1,9 +1,11 @@
 .. Matthew Henderson, 18 December 2010
+   Last updated Thu Aug  9 15:18:59 BST 2012
 
+============
 Introduction
 ============
 
-Rysa is a Python package for modelling latin squares and related combinatorial
+Ryser is a Python package for modelling latin squares and related combinatorial
 designs. The author is especially interested in specializations of latin
 squares, notably Gerechte designs and Sudoku puzzles. Other structures of 
 interest are Room squares and magic squares.
