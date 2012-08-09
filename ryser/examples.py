@@ -1,6 +1,9 @@
 # Matthew Henderson, 2012.04.01 (Nottingham)
 
+import itertools
+
 from ryser.designs import Latin
+from ryser.utils import rect_r, col_r, row_r
 
 """ 
 Example 1
@@ -69,9 +72,6 @@ fail1 = [[1,2, \
           37,39,40,41,42, \
           46,47,48,49]]
 
-from ryser.utils import col_r
-import itertools
-
 # A first attempt at generalisation.
 # Here fail2 consists of the following 4 elements from an 8 x 8 matrix labelled
 # 1,..,64 across rows from top-left to bottom-right.
@@ -92,8 +92,6 @@ fail2 = [col_r(7,8)[:-2], \
 #      * all subsets we get from this set by removing a row from TR.
 #    * TR minus the first column (TRmc1) plus the first row of B1.
 #    * TR minus the second column (TRmc2) plus the second row of B1.
-
-from ryser.utils import row_r
 
 B1 = [39,40,47,48]
 r1 = row_r(1,8)[4:]
@@ -232,6 +230,5 @@ eg6 = Latin(
       106: 1, 117: 1, \
       132: 2, 143: 2}, size = 12)
 
-from ryser.utils import rect_r
 fail6 = [rect_r(7, 72, 12) + rect_r(83, 96, 12) + rect_r(107, 120, 12)]
 
