@@ -5,7 +5,6 @@ from ryser.hall import hall_numbers, hall_subgraphs,\
                               symmetric_hall_inequality_on_cells
 from ryser.examples import eg5
 
-P = eg5.fixed_cells()
 n = eg5.size()
 
 r1 = row_r(0*n + 1, n)[8:]
@@ -29,14 +28,14 @@ TR = rect_r(9, 96, n)
 
 S = TR
 
-hall_nums = hall_numbers(P, n, S)
+hall_nums = hall_numbers(eg5, S)
 
 print "S: " + str(S)
 print "Hall numbers: "  + str(hall_nums)
 print "Sum of Hall numbers: " + str(sum(hall_nums))
 print "No of vertices: " + str(len(S))
 
-#hall_subgraphs(P, n, S, with_labels = True, format = 'png')
+#hall_subgraphs(eg5, S, with_labels = True, format = 'png')
 
-assert not symmetric_hall_inequality_on_cells(P, n, S)
+assert not symmetric_hall_inequality_on_cells(eg5, S)
 

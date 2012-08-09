@@ -33,12 +33,14 @@ def symmetric_hall_inequality_on_cells(partial_latin_square, cells):
     lists = list_assignment(fixed, size)
     return hall_inequality_on_cells_g(graph, lists, size, cells)   
 
-def hall_numbers(partial_latin_square, size, cells):
+def hall_numbers(partial_latin_square, cells):
     """Returns a list of Hall numbers for the subgraph induced by cells in
     cells."""
+    size = partial_latin_square.size()
+    fixed = partial_latin_square.fixed_cells()
     cell_vertices = [vertex(x, size) for x in cells]
     H = latin_graph(size).subgraph(cell_vertices)
-    L = list_assignment(partial_latin_square, size)
+    L = list_assignment(fixed, size)
     colours = range(1, size + 1)
     return _hall_numbers_(H, L, colours)
 
