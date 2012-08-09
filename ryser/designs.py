@@ -1,28 +1,14 @@
-# Matthew Henderson, 2010.12.18 (Chandlers Ford)
-
-from output import dict_to_string_xxx
+# Created 18th December 2010. Last updated Thu Aug  9 16:14:34 BST 2012
 
 class Latin:
-    """This is a component for building (partial) latin rectangle objects."""
-    def __init__(self, fixed, size):
-        self.__nrows__ = size[0]
-        self.__ncols__ = size[1]
-        self.__fixed__ = fixed
 
-    def __repr__(self):
-        return dict_to_string_xxx(self.__fixed__, self.__nrows__, self.__ncols__)
+  def __init__(self, P, size):
+     self._P = P
+     self._size = size
 
-    def __call__(self, row, column):
-        return self.__fixed__.get((row, column))
+  def size(self):
+     return self._size
 
-    def nrows(self):
-        return self.__nrows__
+  def fixed_cells(self):
+     return self._P
 
-    def ncols(self):
-        return self.__ncols__
-
-class Gerechte:
-    pass
-
-class Sudoku:
-    pass

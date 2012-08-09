@@ -1,16 +1,6 @@
 # Matthew Henderson, 2012.04.01 (Nottingham)
 
-class Example:
-
-  def __init__(self, P, size):
-     self._P = P
-     self._size = size
-
-  def size(self):
-      return self._size
-
-  def fixed_cells(self):
-      return self._P
+from ryser.designs import Latin
 
 """ 
 Example 1
@@ -28,7 +18,7 @@ From "Completing Partial Latin Squares: Cropper's Question"
 
 """
 
-eg1 = Example(
+eg1 = Latin(
       {  3:7,  4:3,  5:5, \
         12:6, 13:1, 14:5, \
         16:6, 21:3, \
@@ -53,7 +43,7 @@ Example 2
 """
 
 
-eg2 = Example(
+eg2 = Latin(
       { 1:6,  2:1,  3:2,  4:3, \
         9:1, 10:6, 11:4, 12:5, \
        17:2, 18:4, 19:6, 20:1, \
@@ -67,7 +57,7 @@ eg2 = Example(
 # for which Hall's condition or the symmetric Hall condition fails. They are
 # independent of the examples to aid reuse.
 
-# fail1 is the subgraph from the paper referenced in the comment about Example
+# fail1 is the subgraph from the paper referenced in the comment about Latin
 # 1. It's unlikely that this set is going to occur elsewhere so we won't attempt
 # to generalise here.
 
@@ -139,7 +129,7 @@ This is Type 1, Case 2
 
 """
 
-eg3 = Example(
+eg3 = Latin(
       { 1:2,  2:1,  3:3,  4:4, \
         9:1, 10:3, 11:2, 12:6, \
        17:3, 18:2, 19:4, 20:1, \
@@ -167,7 +157,7 @@ This is Type 2, Case 1
 
 """
 
-eg4 = Example(
+eg4 = Latin(
     { 1:1,  2:2,  3:3,  4:5, \
       9:2, 10:1, 11:3, 12:6, \
      17:3, 18:1, 19:4, 20:2, \
@@ -198,7 +188,7 @@ This is Type 1, Case 1
 
 """
 
-eg5 = Example(
+eg5 = Latin(
     {   1: 2,   2: 6,  3: 7,  4: 8,  5: 9,  6:10,  7:11,  8:12, \
        13: 6,  14: 2, 15: 8, 16: 7, 17:10, 18: 9, 19:12, 20:11, \
        25: 7,  26: 8, 27: 1, 28: 6, 29:11, 30:12, 31: 9, 32:10, \
@@ -231,7 +221,7 @@ This is Type 2, Case 2
 
 """
 
-eg6 = Example(
+eg6 = Latin(
     {   1: 4,   2: 1,  3: 2,  4:10,  5:11,  6:12, \
        13: 1,  14: 5, 15:10, 16:11, 17:12, 18: 2, \
        25: 2,  26:10, 27: 6, 28:12, 29: 1, 30:11, \
