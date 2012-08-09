@@ -10,22 +10,20 @@ from ryser.hall import symmetric_hall_inequality_on_cells
 
 class TestHallConditionOnCells(unittest.TestCase):
 
-    def __assert_false_hall_inequality_on_cells(self, P, size, lcells):
+    def __assert_false_hall_inequality_on_cells(self, P, lcells):
         for cells in lcells:
-            self.assertFalse(hall_inequality_on_cells(P, size, cells))
+            self.assertFalse(hall_inequality_on_cells(P, cells))
 
-    def __assert_true_hall_inequality_on_cells(self, P, size, lcells):
+    def __assert_true_hall_inequality_on_cells(self, P, lcells):
         for cells in lcells:
-            self.assertTrue(hall_inequality_on_cells(P, size, cells))
+            self.assertTrue(hall_inequality_on_cells(P, cells))
 
     def __assert_true_hall_inequality_on_example(self, example, lcells):
-        return self.__assert_true_hall_inequality_on_cells(example.fixed_cells(),
-                                                           example.size(),
+        return self.__assert_true_hall_inequality_on_cells(example,
                                                            lcells)
 
     def __assert_false_hall_inequality_on_example(self, example, lcells):
-        return self.__assert_false_hall_inequality_on_cells(example.fixed_cells(),
-                                                            example.size(),
+        return self.__assert_false_hall_inequality_on_cells(example,
                                                             lcells)
 
     def test_hall_inequality_on_cells(self):
@@ -39,22 +37,20 @@ class TestHallConditionOnCells(unittest.TestCase):
 class TestSymmetricHallConditionOnCells(unittest.TestCase):
 
 
-    def __assert_false_symmetric_hall_inequality_on_cells(self, P, size, lcells):
+    def __assert_false_symmetric_hall_inequality_on_cells(self, P, lcells):
         for cells in lcells:
-            self.assertFalse(symmetric_hall_inequality_on_cells(P, size, cells))
+            self.assertFalse(symmetric_hall_inequality_on_cells(P, cells))
 
-    def __assert_true_symmetric_hall_inequality_on_cells(self, P, size, lcells):
+    def __assert_true_symmetric_hall_inequality_on_cells(self, P, lcells):
         for cells in lcells:
-            self.assertTrue(symmetric_hall_inequality_on_cells(P, size, cells))
+            self.assertTrue(symmetric_hall_inequality_on_cells(P, cells))
 
     def __assert_true_symmetric_hall_inequality_on_example(self, example, lcells):
-        return self.__assert_true_symmetric_hall_inequality_on_cells(example.fixed_cells(),
-                                                           example.size(),
+        return self.__assert_true_symmetric_hall_inequality_on_cells(example,
                                                            lcells)
 
     def __assert_false_symmetric_hall_inequality_on_example(self, example, lcells):
-        return self.__assert_false_symmetric_hall_inequality_on_cells(example.fixed_cells(),
-                                                            example.size(),
+        return self.__assert_false_symmetric_hall_inequality_on_cells(example,
                                                             lcells)
 
     def test_symmetric_hall_inequality_on_cells(self):

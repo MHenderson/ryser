@@ -16,17 +16,21 @@ def hall_inequality_on_cells_g(graph, lists, size, cells):
     colours = range(1, size + 1)
     return hall_inequality_induced_by(graph, lists, colours, vertices)
 
-def hall_inequality_on_cells(partial_latin_square, size, cells):
+def hall_inequality_on_cells(partial_latin_square, cells):
     """Decide whether Hall's condition is satisfied for cells."""
+    size = partial_latin_square.size()
+    fixed = partial_latin_square.fixed_cells()
     graph = latin_graph(size)
-    lists = list_assignment(partial_latin_square, size)
+    lists = list_assignment(fixed, size)
     return hall_inequality_on_cells_g(graph, lists, size, cells)
 
-def symmetric_hall_inequality_on_cells(partial_latin_square, size, cells):
+def symmetric_hall_inequality_on_cells(partial_latin_square, cells):
     """Decide whether Hall's condition is satisfied for cells in symmetric
     case."""
+    size = partial_latin_square.size()
+    fixed = partial_latin_square.fixed_cells()
     graph = symmetric_latin_graph(size)
-    lists = list_assignment(partial_latin_square, size)
+    lists = list_assignment(fixed, size)
     return hall_inequality_on_cells_g(graph, lists, size, cells)   
 
 def hall_numbers(partial_latin_square, size, cells):
@@ -38,20 +42,24 @@ def hall_numbers(partial_latin_square, size, cells):
     colours = range(1, size + 1)
     return _hall_numbers_(H, L, colours)
 
-def symmetric_hall_numbers(partial_latin_square, size, cells):
+def symmetric_hall_numbers(partial_latin_square, cells):
     """Returns a list of Hall numbers for the subgraph induced by cells in
     cells."""
+    size = partial_latin_square.size()
+    fixed = partial_latin_square.fixed_cells()
     cell_vertices = [vertex(x, size) for x in cells]
     H = symmetric_latin_graph(size).subgraph(cell_vertices)
-    L = list_assignment(partial_latin_square, size)
+    L = list_assignment(fixed, size)
     colours = range(1, size + 1)
     return _hall_numbers_(H, L, colours)
 
-def hall_subgraphs(partial_latin_square, size, cells, with_labels = False, format = 'png'):
+def hall_subgraphs(partial_latin_square, cells, with_labels = False, format = 'png'):
     """Draw symmetric Hall subgraphs."""
+    size = partial_latin_square.size()
+    fixed = partial_latin_square.fixed_cells()
     cell_vertices = [vertex(x, size) for x in cells]
     H = symmetric_latin_graph(size).subgraph(cell_vertices)
-    L = list_assignment(partial_latin_square, size)
+    L = list_assignment(fixed, size)
     for i in range(1, size + 1):
       Hi = hall_subgraph(H, L, i)
       try:
