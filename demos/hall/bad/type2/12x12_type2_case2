@@ -1,0 +1,30 @@
+#!/usr/bin/python
+
+from ryser.examples import eg6
+from ryser.utils import rect_r, col_r
+from ryser.hall import symmetric_hall_inequality_on_cells, \
+                       symmetric_hall_numbers, hall_subgraphs
+
+P = eg6.fixed_cells()
+n = eg6.size()
+
+TR = rect_r(7, 72, n)
+c11 = col_r(11, n)[:10]
+c12 = col_r(12, n)[:10]
+B1 = rect_r(81, 94, n)
+B2 = rect_r(83, 96, n)
+B3 = rect_r(107, 120, n)
+
+S = TR + B2 + B3
+
+hall_nums = symmetric_hall_numbers(P, n, S)
+
+print "Subgraph: " + str(S)
+print "Hall numbers: "  + str(hall_nums)
+print "Sum of Hall numbers: " + str(sum(hall_nums))
+print "No of vertices: " + str(len(S))
+
+hall_subgraphs(P, n, S, with_labels = True, format = 'png')
+
+assert not symmetric_hall_inequality_on_cells(P, n, S)
+

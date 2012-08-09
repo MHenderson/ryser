@@ -1,0 +1,42 @@
+#!/usr/bin/python
+
+from ryser.utils import row_r, col_r, rect_r
+from ryser.hall import hall_numbers, hall_subgraphs,\
+                              symmetric_hall_inequality_on_cells
+from ryser.examples import eg5
+
+P = eg5.fixed_cells()
+n = eg5.size()
+
+r1 = row_r(0*n + 1, n)[8:]
+r2 = row_r(1*n + 1, n)[8:]
+r3 = row_r(2*n + 1, n)[8:]
+r4 = row_r(3*n + 1, n)[8:]
+r5 = row_r(4*n + 1, n)[8:]
+r6 = row_r(5*n + 1, n)[8:]
+r7 = row_r(6*n + 1, n)[8:]
+r8 = row_r(7*n + 1, n)[8:]
+
+c9 = col_r(9, 12)[:8]
+c10 = col_r(10, 12)[:8]
+c11 = col_r(11, 12)[:8]
+c12 = col_r(12, 12)[:8]
+
+B1 = [107,108,119,120]
+D = [105,118,131,144]
+
+TR = rect_r(9, 96, n)
+
+S = TR
+
+hall_nums = hall_numbers(P, n, S)
+
+print "S: " + str(S)
+print "Hall numbers: "  + str(hall_nums)
+print "Sum of Hall numbers: " + str(sum(hall_nums))
+print "No of vertices: " + str(len(S))
+
+#hall_subgraphs(P, n, S, with_labels = True, format = 'png')
+
+assert not symmetric_hall_inequality_on_cells(P, n, S)
+
