@@ -87,9 +87,9 @@ fail2 = [col_r(7,8)[:-2], \
         [list(x) for x in itertools.combinations(col_r(7,8)[:-2] + col_r(8,8)[:-2], 11)]
 
 # fail3 consists of the following 7 elements:
-#    * The top right block (TR) plus the top right block B1 of the
+#    * The top right block (TRr) plus the top right block B1 of the
 #      bottom right block (BR) as well as:
-#      * all subsets we get from this set by removing a row from TR.
+#      * all subsets we get from this set by removing a row from TRr.
 #    * TR minus the first column (TRmc1) plus the first row of B1.
 #    * TR minus the second column (TRmc2) plus the second row of B1.
 
@@ -100,12 +100,11 @@ r3 = row_r(2*8 + 1,8)[4:]
 r4 = row_r(3*8 + 1,8)[4:]
 c1 = col_r(5,8)[:4]
 c2 = col_r(6,8)[:4]
-TR = [r1,r2,r3,r4]
-TRr = reduce(lambda x,y: x+y, TR)
+TRr = rect_r(5, 32, 8)
 TRmc1 = [x for x in TRr if x not in c1]
 TRmc2 = [x for x in TRr if x not in c2]
 
-temp = [B1 + reduce(lambda x,y: x+y, z) for z in itertools.combinations(TR, 3)]
+temp = [B1 + reduce(lambda x,y: x+y, z) for z in itertools.combinations([r1,r2,r3,r4], 3)]
 fail3 = temp + [
           B1 + TRr, \
           TRmc2 + B1[:2], \

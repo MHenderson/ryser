@@ -33,8 +33,8 @@ def rect_r(tl, br, size):
     bottom right."""
     (i,j) = vertex(tl, size)
     (k,l) = vertex(br, size)
-    cells = [(x,y) for x in range(i, k+1) for y in range(j, l+1)]
-    return map(lambda x: cell(x[0], x[1], 12), cells)
+    cells = [(x, y) for x in range(i, k + 1) for y in range(j, l + 1)]
+    return map(lambda x: cell(x[0], x[1], size), cells)
 
 def list_assignment(partial_latin_square, size):
     """The (canonical) list assignment for a partial latin square. The list of
