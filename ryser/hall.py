@@ -5,9 +5,16 @@ from vizing.hall import hall_subgraph
 from ryser.graphs import latin_graph, symmetric_latin_graph
 from ryser.utils import list_assignment, vertex 
 
-import matplotlib.pyplot as plt
-from networkx import draw_circular as draw
-from networkx import maximal_independent_set, write_graphml, write_dot
+try:
+    import matplotlib.pyplot as plt
+except ImportError:
+    pass
+
+try:
+    from networkx import draw_circular as draw
+    from networkx import maximal_independent_set, write_graphml, write_dot
+except ImportError:
+    pass
 
 def hall_inequality_on_cells_g(graph, lists, size, cells):
     """Decide if Hall's condition is satisfied for the subgraph of the latin
