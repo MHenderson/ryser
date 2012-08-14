@@ -5,7 +5,7 @@ from distutils.core import setup
 
 setup(
     name = 'ryser',
-    version = '0.0.2',
+    version = '0.0.3',
     packages = ['ryser',],
     description = "Latin squares and related designs.",
     author = "Matthew Henderson",

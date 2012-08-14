@@ -20,7 +20,7 @@ from ryser.hall import hall_inequality_on_cells
 
 def f(n, k):
     if k >= len(bin(n)) - 2:
-        return True
+        return False
     else:
         return bool(int(bin(n)[2:][::-1][k]))
 
@@ -31,6 +31,6 @@ m = int(sys.argv[2])
 for k in range(n, m + 1):
 
     X = (a for a in A if f(k, A.index(a)))
-    if not hall_inequality_on_cells(eg1, X):
-        print k, [a for a in A if f(k, A.index(a))]
+    result = hall_inequality_on_cells(eg1, X)
+    print k, result
 
