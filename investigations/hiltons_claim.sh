@@ -13,7 +13,8 @@ j=$SGE_TASK_ID
 #echo $s
 #echo $j
 
-command="is_hall_on_interval"
+command="python /work/work6/pmzmh/investigations/bin/is_hall_on_interval"
 
+source /work/work6/pmzmh/bin/ENV/bin/activate
 echo $command $((a+(j-1)*s)) $((a+(j)*s-1))
 
