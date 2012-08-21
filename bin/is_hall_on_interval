@@ -12,25 +12,26 @@
 # 2 . 1 . . . . 
 # 3 4 2 . . . . 
 
+import itertools
 import ryser
 import sys
+import vizing
+
+from itertools import islice
 
 from ryser.examples import eg1, fail1
 from ryser.hall import hall_inequality_on_cells
 
-def f(n, k):
-    if k >= len(bin(n)) - 2:
-        return False
-    else:
-        return bool(int(bin(n)[2:][::-1][k]))
+from vizing.utils import powerset
 
-A = fail1[0]
+A = [6,7,11,15,18,19,20]
+
 n = int(sys.argv[1])
 m = int(sys.argv[2])
 
-for k in range(n, m + 1):
+for X in islice(powerset(A), n, m):
 
-    X = (a for a in A if f(k, A.index(a)))
-    result = hall_inequality_on_cells(eg1, X)
-    print k, result
+    Y = fail1[0] + list(X) # a hack for testing supersets of fail1[0]
+    result = hall_inequality_on_cells(eg1, Y)
+    print Y, result
 
