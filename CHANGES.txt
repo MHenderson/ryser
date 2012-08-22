@@ -1,0 +1,1 @@
+v0.0.5, 12.08.22 -- Enhanced functionality for testing Hall's Condition.

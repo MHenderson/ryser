@@ -1,6 +1,9 @@
+from itertools import islice
+
 from vizing.hall import hall_inequality_induced_by
 from vizing.hall import hall_numbers as _hall_numbers_
 from vizing.hall import hall_subgraph
+from vizing.utils import powerset
 
 from ryser.graphs import latin_graph, symmetric_latin_graph
 from ryser.utils import list_assignment, vertex 
@@ -88,3 +91,8 @@ def hall_subgraphs(partial_latin_square, cells, with_labels = False, format = 'p
         else:
           raise "No such format"
 
+def is_hall_on_interval(pls, constant, exponent, n, m):
+    for X in islice(powerset(exponent), n, m):
+        Y = constant + list(X)
+        result = hall_inequality_on_cells(pls, Y)
+        print Y, result

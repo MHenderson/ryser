@@ -5,12 +5,13 @@ from distutils.core import setup
 
 setup(
     name = 'ryser',
-    version = '0.0.4',
+    version = '0.0.5',
     packages = ['ryser',],
     description = "Latin squares and related designs.",
     author = "Matthew Henderson",
     author_email = "matthew.james.henderson@gmail.com",
-    scripts = ['bin/is_hall_on_interval.py'],
+    scripts = ['bin/counterexample_investigation.py',
+               'bin/hiltons_claim.py'],
     url = "http://packages.python.org/ryser/",
     download_url = "http://pypi.python.org/pypi/ryser/",
     keywords = [""],
@@ -26,7 +27,7 @@ setup(
     long_description = open('README.txt').read(),
     install_requires=[
         "networkx >= 1.7.0",
-        "vizing >= 0.0.1",
+        "vizing >= 0.0.11",
     ],
 )
 
