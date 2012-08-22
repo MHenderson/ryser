@@ -92,7 +92,14 @@ def hall_subgraphs(partial_latin_square, cells, with_labels = False, format = 'p
           raise "No such format"
 
 def is_hall_on_interval(pls, constant, exponent, n, m):
-    for X in islice(powerset(exponent), n, m):
+    def f(n, k):
+        if k >= len(bin(n)) - 2:
+            return False
+        else:
+            return bool(int(bin(n)[2:][::-1][k]))
+    for k in range(n, m + 1):
+        X = (a for a in exponent if f(k, exponent.index(a)))
         Y = constant + list(X)
         result = hall_inequality_on_cells(pls, Y)
         print Y, result
+

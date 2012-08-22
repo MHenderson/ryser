@@ -24,12 +24,12 @@ from ryser.utils import rect_r
 n = int(argv[1])
 m = int(argv[2])
 
-TR = rect_r(45, 96, 12)
+TR = rect_r(9, 96, 12)
 B1 = rect_r(107, 120, 12)
 D = [105, 118, 131, 144]
 
-constant = TR
-exponent = B1 + D
+constant = []
+exponent = TR + B1 + D
 
 is_hall_on_interval(eg5, constant, exponent, n, m)
 
