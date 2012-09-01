@@ -24,7 +24,7 @@ setup(
         "Topic :: Software Development :: Libraries :: Python Modules",
         ],
     license = 'LICENSE.txt',
-    long_description = open('README.txt').read(),
+    long_description = open('README.rst').read(),
     install_requires=[
         "networkx >= 1.7.0",
         "vizing >= 0.0.11",
