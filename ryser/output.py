@@ -38,7 +38,7 @@ def dict_to_string(fixed, size, col_sep = '', row_sep = '', padding = 0, top = '
     for row in rows[:-1]:
         s += row_string(fixed, size, row, col_sep, padding)
         s += row_sep
-    s += row_string(fixed, size, row, col_sep, padding)
+    s += row_string(fixed, size, rows[size-1], col_sep, padding)
     s += ' '*padding
     s += bottom
     return s
