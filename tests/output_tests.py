@@ -1,8 +1,10 @@
-# Matthew Henderson, 18.12.2010 (Chandlers Ford)
+# Copyright Matthew Henderson 2013.
+# Created 18.12.2010 (Chandlers Ford).
+# Last updated Mon Mar 25 16:30:07 GMT 2013.
 
 import unittest
 
-from ryser.output import dict_to_string, dict_to_string_std, row_string
+from ryser.output import dict_to_string, dict_to_string_simple, row_string
 from ryser.examples import eg1
 
 class TestRowString(unittest.TestCase):
@@ -29,11 +31,11 @@ class TestDictToString(unittest.TestCase):
     def test_dict_to_string(self):
         pass
 
-class TestDictToStringStd(unittest.TestCase):
+class TestDictToStringSimple(unittest.TestCase):
     """Testing of string conversion."""
 
     def setUp(self):
         pass
 
-    def test_dict_to_string_std(self):
-        pass
+    def test_dict_to_string_simple(self):
+        self.assertEqual(dict_to_string_simple(eg1.fixed_cells(), 7),'|.|.|7|3|5|.|.|\n|.|.|.|.|6|1|5|\n|.|6|.|.|.|.|3|\n|6|.|.|.|.|.|.|\n|4|.|.|.|.|.|.|\n|2|.|1|.|.|.|.|\n|2|.|1|.|.|.|.|')
