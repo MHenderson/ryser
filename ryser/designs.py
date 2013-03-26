@@ -1,4 +1,6 @@
-# Created 18th December 2010. Last updated Thu Aug  9 16:14:34 BST 2012
+# Copyright Matthew Henderson 2013.
+# Created 18th December 2010.
+# Last updated: Tue Mar 26 09:53:38 GMT 2013
 
 from ryser.output import dict_to_string_simple
 
@@ -16,4 +18,7 @@ class Latin:
 
     def fixed_cells(self):
         return self._P
+
+    def extend(self, disjoint_fixed):
+        self._P.update(disjoint_fixed)
 

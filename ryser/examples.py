@@ -1,4 +1,6 @@
-# Matthew Henderson, 2012.04.01 (Nottingham)
+# Copyright Matthew Henderson 2013
+# Created 1st April 2012.
+# Last updated: Tue Mar 26 09:54:44 GMT 2013.
 
 import itertools
 
@@ -231,3 +233,25 @@ eg6 = Latin(
 
 fail6 = [rect_r(7, 72, 12) + rect_r(83, 96, 12) + rect_r(107, 120, 12)]
 
+"""
+Example 8
+
+Completable
+
+ 3 1 7 4 . . . .
+ 4 2 4 3 . . . .
+ 7 4 6 5 . . . .
+ 4 3 5 8 . . . .
+ . . . . . 3 . .
+ . . . . 3 . . .
+ . . . . . . . 5
+ . . . . . . 5 .
+
+"""
+
+eg8 = Latin({ 1:3,  2:1,  3:7,  4:4,\
+              9:1, 10:2, 11:4, 12:3,\
+             17:7, 18:4, 19:6, 20:5,\
+             25:4, 26:3, 27:5, 28:8,\
+             38:3, 45:3, \
+             56:5, 63:5 }, 8)
