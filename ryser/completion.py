@@ -1,9 +1,13 @@
 # Copyright Matthew Henderson 2013.
 # Created Tue Mar 26 10:02:38 GMT 2013
-# Last updated: Tue Mar 26 10:35:25 GMT 2013
+# Last updated: Tue Mar 26 10:51:51 GMT 2013
 
 def extension(P, w, t, e):
     """
+    If P is a (w,t,e)-KF-SPLS then this function returns an extension of P.
+    In other words, if D is returned then P.update(D) is a
+    (w+2, t-2, e)-KF-PLS.
+
     P - a KF-SPLS
     w - wing dimension
     t - tail dimension
@@ -18,6 +22,10 @@ def extension(P, w, t, e):
                 60:2,61:4,62:1,64:6}
 
 def complete(P, w, t, e):
+    """
+    If P is a completable KF-SPLS then this function will return a completion
+    of P. Raises an exception when P is incompletable.
+    """
     if w==P.size():
         return P
     else:
