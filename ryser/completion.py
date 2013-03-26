@@ -2,7 +2,7 @@
 # Created Tue Mar 26 10:02:38 GMT 2013
 # Last updated: Tue Mar 26 10:35:25 GMT 2013
 
-def extend(P, w, t, e):
+def extension(P, w, t, e):
     """
     P - a KF-SPLS
     w - wing dimension
@@ -21,6 +21,6 @@ def complete(P, w, t, e):
     if w==P.size():
         return P
     else:
-        P.extend(extend(P, w, t, e))
+        P.extend(extension(P, w, t, e))
         return complete(P, w + 2, t - 2, e)
 
