@@ -10,9 +10,9 @@ def readme():
 
 setup(
     name = 'ryser',
-    version = '0.0.6',
+    version = '0.0.7',
     packages = ['ryser',],
-    description = "Latin squares and related designs.",
+    description = "Latin Squares and Related Designs.",
     author = "Matthew Henderson",
     author_email = "matthew.james.henderson@gmail.com",
     scripts = ['bin/counterexample_investigation.py',
