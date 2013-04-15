@@ -1,7 +1,7 @@
 # Matthew Henderson, 2012
 # Created Wed Aug  8 15:37:51 BST 2012. Last updated Tue Aug 21 15:13:43 BST 2012
 
-from distutils.core import setup
+from setuptools import setup
 
 setup(
     name = 'ryser',
