@@ -1,7 +1,12 @@
 # Matthew Henderson, 2012
-# Created Wed Aug  8 15:37:51 BST 2012. Last updated Tue Aug 21 15:13:43 BST 2012
+# Created: Wed Aug  8 15:37:51 BST 2012.
+# Last updated: Mon Apr 15 20:17:58 BST 2013.
 
 from setuptools import setup
+
+def readme():
+    with open('README.rst') as f:
+        return f.read()
 
 setup(
     name = 'ryser',
@@ -24,7 +29,7 @@ setup(
         "Topic :: Software Development :: Libraries :: Python Modules",
         ],
     license = 'LICENSE.txt',
-    long_description = open('README.rst').read(),
+    long_description = readme(),
     install_requires=[
         "networkx >= 1.7.0",
         "vizing >= 0.0.11",
