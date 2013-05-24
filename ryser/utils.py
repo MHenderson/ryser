@@ -58,3 +58,6 @@ def list_assignment(partial_latin_square, size):
                     if P[i] in L[row(j, size), col(j, size)]:
                         L[row(j, size), col(j, size)].remove(P[i])
     return L
+
+def orthogonal_array(L, size):
+    return [(i,j,L[i,j]) for i,j in range(size)]
