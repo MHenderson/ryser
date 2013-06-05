@@ -15,6 +15,9 @@ class Latin:
     def __str__(self):
         return dict_to_string_simple(self._P, self._size)
 
+    def __getitem__(self, key):
+        return self._P[cell(key[0], key[1], self._size)]
+
     def size(self):
         return self._size
 
