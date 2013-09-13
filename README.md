@@ -1,7 +1,7 @@
-Ryser -- Latin Squares and Related Designs
-==========================================
+Ryser - Latin Squares and Related Designs
+=========================================
 
-Created: Wed Aug  8 15:39:10 BST 2012. Last updated: Mon Apr 15 20:21:22 BST 2013
+Created Wed Aug  8 15:39:10 BST 2012. Last updated Fri Sep 13 16:38:28 BST 2013.
 
 Introduction
 ------------
