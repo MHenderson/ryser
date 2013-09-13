@@ -1,6 +1,5 @@
 # Copyright Matthew Henderson 2013.
-# Created 18.12.2010 (Chandlers Ford).
-# Last updated Mon Mar 25 16:30:07 GMT 2013.
+# Created 18.12.2010 (Chandlers Ford). Last updated Fri Sep 13 17:15:35 BST 2013
 
 import unittest
 
