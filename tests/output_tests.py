@@ -38,4 +38,4 @@ class TestDictToStringSimple(unittest.TestCase):
         pass
 
     def test_dict_to_string_simple(self):
-        self.assertEqual(dict_to_string_simple(eg1.fixed_cells(), 7),'|.|.|7|3|5|.|.|\n|.|.|.|.|6|1|5|\n|.|6|.|.|.|.|3|\n|6|.|.|.|.|.|.|\n|4|.|.|.|.|.|.|\n|2|.|1|.|.|.|.|\n|2|.|1|.|.|.|.|')
+        self.assertEqual(dict_to_string_simple(eg1.fixed_cells(), 7),'|.|.|7|3|5|.|.|\n|.|.|.|.|6|1|5|\n|.|6|.|.|.|.|3|\n|6|.|.|.|.|.|.|\n|4|.|.|.|.|.|.|\n|2|.|1|.|.|.|.|\n|3|4|2|.|.|.|.|')
