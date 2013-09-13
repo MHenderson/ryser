@@ -1,35 +1,35 @@
 Ryser - Latin Squares and Related Designs
 =========================================
 
-Created Wed Aug  8 15:39:10 BST 2012. Last updated Fri Sep 13 16:38:28 BST 2013.
+Created Wed Aug  8 15:39:10 BST 2012. Last updated Fri Sep 13 18:15:10 BST 2013.
 
 Introduction
 ------------
 
 Ryser is a Python package for latin squares and related designs.
 
-An Example
-----------
+Example: Hall Numbers
+---------------------
 
-Here is a demo which computes Hall numbers and draws subgraphs.
+Here is a demo which computes Hall numbers.
 
+    >>> import ryser
     >>> from ryser.examples import eg3, fail4
-    >>> from ryser.hall import hall_inequality_on_cells
-    >>> from ryser.hall import symmetric_hall_inequality_on_cells
 
     >>> S = fail4[0]
+    >>> hall_nums = ryser.hall.symmetric_hall_numbers(eg3, S)
 
-    >>> assert hall_inequality_on_cells(eg3, S)
-    >>> assert not symmetric_hall_inequality_on_cells(eg3, S)
+Test Hall inequalities:
 
-    >>> from ryser.hall import symmetric_hall_numbers, hall_subgraphs
+    >>> assert ryser.hall.hall_inequality_on_cells(eg3, S)
+    >>> assert not ryser.hall.symmetric_hall_inequality_on_cells(eg3, S)
 
-    >>> hall_nums = symmetric_hall_numbers(eg3, S)
+Print the Hall numbers and show the subgraphs.
 
-    >>> print "S: " + str(S)
-    >>> print "Hall numbers: "  + str(hall_nums)
-    >>> print "Sum of Hall numbers: " + str(sum(hall_nums))
-    >>> print "No of vertices: " + str(len(S))
+    >>> print "S: {}".format(S)
+    >>> print "Hall numbers: {}".format(hall_nums)
+    >>> print "Sum of Hall numbers: {}".format(sum(hall_nums))
+    >>> print "No of vertices: {}".format((len(S))
 
-    >>> hall_subgraphs(eg3, S, format = 'dot')
+    >>> ryser.hall.hall_subgraphs(eg3, S, format = 'dot')
 
