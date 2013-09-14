@@ -7,8 +7,17 @@ from ryser.utils import cell, row_r
 
 class Latin:
 
-    def __init__(self, P, size, symbols = range(1,9)):
-        self._P = P
+    def __init__(self, P, size, symbols = range(1,9), format = ''):
+        if format == 'alt':
+            L = {}
+            for i in P:
+                for j in P[i]:
+                    row = j[0]
+                    column = j[1]
+                    L[cell(row, column, size)] = i
+            self._P = L
+        else:
+            self._P = P
         self._size = size
         self._symbols = symbols
 

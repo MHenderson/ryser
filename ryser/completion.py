@@ -1,6 +1,11 @@
 # Copyright Matthew Henderson 2013.
-# Created Tue Mar 26 10:02:38 GMT 2013
-# Last updated: Tue Mar 26 10:51:51 GMT 2013
+# Created Tue Mar 26 10:02:38 GMT 2013. Last updated Sat Sep 14 19:07:08 BST 2013.
+
+from ryser.designs import Latin
+from ryser.graphs import latin_graph
+from ryser.utils import list_assignment
+
+import vizing
 
 def extension(P, w, t, e):
     """
@@ -21,14 +26,9 @@ def extension(P, w, t, e):
                 48:1,49:6,50:8,51:2,52:1,53:7,54:4,55:3,57:8,58:7,59:3,\
                 60:2,61:4,62:1,64:6}
 
-def complete(P, w, t, e):
-    """
-    If P is a completable KF-SPLS then this function will return a completion
-    of P. Raises an exception when P is incompletable.
-    """
-    if w==P.size():
-        return P
-    else:
-        P.extend(extension(P, w, t, e))
-        return complete(P, w + 2, t - 2, e)
+def complete(P):
+    G = latin_graph(P.size())
+    L = list_assignment(P.fixed_cells(), P.size())
+    C = vizing.colouring.list_colouring(G, L)
+    print Latin(C, P.size(), format = 'alt')
 

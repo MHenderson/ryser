@@ -10,19 +10,23 @@ Ryser you will find components for building partial combinatorial structures
 as well as algorithmic components for investigating the completability of
 particular instances of such structures.
 
-This is the main documentation page for Ryser. Here you can find links to
-introductory material which explains the concepts behind Ryser, a tutorial which
-demonstrates how to use Ryser as well as documentation for every module of Ryser
-and tests of all those modules.
+This is the homepage and documentation index for Ryser. Here you will find
+all links to source code, documentation and downloads. The documentation index
+follows below.
 
-Contents
---------
+* Homepage: http://pythonhosted.org/ryser/
+* Documentation: http://pythonhosted.org/ryser/#documentation
+* Download: https://pypi.python.org/pypi/ryser/
+* Source Code Repository: https://bitbucket.org/matthew/ryser
+
+Documentation
+-------------
 
 .. toctree::
    :maxdepth: 2
 
    intro
+   install
    tutorial
    modules
-   tests
 
