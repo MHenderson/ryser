@@ -14,11 +14,12 @@
 
 from sys import argv
 
-from ryser.examples import eg1, fail1
-from ryser.hall import is_hall_on_interval
+import ryser
 
 n = int(argv[1])
 m = int(argv[2])
 
-is_hall_on_interval(eg1, fail1[0], [6,7,11,15,18,19,20], n, m)
+S = [6,7,11,15,18,19,20]
+
+ryser.hall.on_interval(ryser.examples.eg1, ryser.examples.fail1[0], S, n, m)
 

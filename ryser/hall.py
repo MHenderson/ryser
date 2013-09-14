@@ -102,6 +102,6 @@ def on_interval(pls, constant, exponent, n, m):
     for k in range(n, m + 1):
         X = (a for a in exponent if f(k, exponent.index(a)))
         Y = constant + list(X)
-        result = hall_inequality_on_cells(pls, Y)
+        result = inequality_on_cells(pls, Y)
         print Y, result
 

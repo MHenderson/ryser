@@ -17,19 +17,17 @@
 
 from sys import argv
 
-from ryser.examples import eg5
-from ryser.hall import is_hall_on_interval
-from ryser.utils import rect_r
+import ryser
 
 n = int(argv[1])
 m = int(argv[2])
 
-TR = rect_r(9, 96, 12)
-B1 = rect_r(107, 120, 12)
+TR = ryser.utils.rect_r(9, 96, 12)
+B1 = ryser.utils.rect_r(107, 120, 12)
 D = [105, 118, 131, 144]
 
 constant = []
 exponent = TR + B1 + D
 
-is_hall_on_interval(eg5, constant, exponent, n, m)
+ryser.hall.on_interval(ryser.examples.eg5, constant, exponent, n, m)
 
