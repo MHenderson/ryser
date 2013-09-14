@@ -1,7 +1,7 @@
 Ryser - Latin Squares and Related Designs
 =========================================
 
-Created Wed Aug  8 15:39:10 BST 2012. Last updated Fri Sep 13 18:15:10 BST 2013.
+Created Wed Aug  8 15:39:10 BST 2012. Last updated Sat Sep 14 13:04:27 BST 2013.
 
 Introduction
 ------------
@@ -15,21 +15,21 @@ Here is a demo which computes Hall numbers.
 
     >>> import ryser
     >>> from ryser.examples import eg3, fail4
-
     >>> S = fail4[0]
     >>> hall_nums = ryser.hall.symmetric_hall_numbers(eg3, S)
+    >>> print "Hall numbers: {}".format(hall_nums)
+    Hall numbers: [0, 1, 2, 2, 3, 3, 4, 4]
+    >>> print "Sum of Hall numbers: {}".format(sum(hall_nums))
+    Sum of Hall numbers: 19
 
 Test Hall inequalities:
 
-    >>> assert ryser.hall.hall_inequality_on_cells(eg3, S)
-    >>> assert not ryser.hall.symmetric_hall_inequality_on_cells(eg3, S)
+    >>> ryser.hall.hall_inequality_on_cells(eg3, S)
+    True
+    >>> ryser.hall.symmetric_hall_inequality_on_cells(eg3, S)
+    False
 
-Print the Hall numbers and show the subgraphs.
-
-    >>> print "S: {}".format(S)
-    >>> print "Hall numbers: {}".format(hall_nums)
-    >>> print "Sum of Hall numbers: {}".format(sum(hall_nums))
-    >>> print "No of vertices: {}".format((len(S))
+Export the subgraphs in DOT format:
 
     >>> ryser.hall.hall_subgraphs(eg3, S, format = 'dot')
 

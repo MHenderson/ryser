@@ -93,26 +93,13 @@ pygments_style = 'sphinx'
 
 # The theme to use for HTML and HTML Help pages.  Major themes that come with
 # Sphinx are currently 'default' and 'sphinxdoc'.
-html_theme = 'agogo'
+html_theme = 'default'
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
 # documentation.
 
-silver = '#c0c0c0'
-orangy = '#FFB03B'
-near_black = '#161616'
-dark_red = '#DC3522'
-terracoty = '#B64926'
-
-html_theme_options = {
-        'bodyfont': 'Georgia, serif',
-        'headerbg': near_black,
-        'headercolor1': near_black,
-        'headercolor2': near_black,
-        'linkcolor': terracoty,
-        'headerlinkcolor': terracoty
-        }
+html_theme_options = {        }
 
 # Add any paths that contain custom themes here, relative to this directory.
 #html_theme_path = []

@@ -1,10 +1,9 @@
 .. Ryser documentation master file, created by
    sphinx-quickstart on Sat Dec 18 15:24:31 2010.
-   Last updated Fri Sep 13 17:57:40 BST 2013
+   Last updated: Sat Sep 14 13:56:04 BST 2013
 
-==========================================
-Ryser -- Latin Squares and Related Designs
-==========================================
+Ryser - Latin Squares and Related Designs
+=========================================
 
 Ryser is a Python library for modelling latin squares and related designs. In
 Ryser you will find components for building partial combinatorial structures

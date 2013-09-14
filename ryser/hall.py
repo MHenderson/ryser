@@ -1,3 +1,5 @@
+# Copyright Matthew Henderson 2013.
+
 from itertools import islice
 
 from vizing.hall import hall_inequality_induced_by
@@ -19,31 +21,31 @@ try:
 except ImportError:
     pass
 
-def hall_inequality_on_cells_g(graph, lists, size, cells):
+def inequality_on_cells_g(graph, lists, size, cells):
     """Decide if Hall's condition is satisfied for the subgraph of the latin
     graph induced by vertices in 'cells' and list assignment given by 'lists'."""
     vertices = [vertex(cell, size) for cell in cells]
     colours = range(1, size + 1)
     return hall_inequality_induced_by(graph, lists, colours, vertices)
 
-def hall_inequality_on_cells(partial_latin_square, cells):
+def inequality_on_cells(partial_latin_square, cells):
     """Decide whether Hall's condition is satisfied for cells."""
     size = partial_latin_square.size()
     fixed = partial_latin_square.fixed_cells()
     graph = latin_graph(size)
     lists = list_assignment(fixed, size)
-    return hall_inequality_on_cells_g(graph, lists, size, cells)
+    return inequality_on_cells_g(graph, lists, size, cells)
 
-def symmetric_hall_inequality_on_cells(partial_latin_square, cells):
+def symmetric_inequality_on_cells(partial_latin_square, cells):
     """Decide whether Hall's condition is satisfied for cells in symmetric
     case."""
     size = partial_latin_square.size()
     fixed = partial_latin_square.fixed_cells()
     graph = symmetric_latin_graph(size)
     lists = list_assignment(fixed, size)
-    return hall_inequality_on_cells_g(graph, lists, size, cells)   
+    return inequality_on_cells_g(graph, lists, size, cells)
 
-def hall_numbers(partial_latin_square, cells):
+def numbers(partial_latin_square, cells):
     """Returns a list of Hall numbers for the subgraph induced by cells in
     cells."""
     size = partial_latin_square.size()
@@ -54,7 +56,7 @@ def hall_numbers(partial_latin_square, cells):
     colours = range(1, size + 1)
     return _hall_numbers_(H, L, colours)
 
-def symmetric_hall_numbers(partial_latin_square, cells):
+def symmetric_numbers(partial_latin_square, cells):
     """Returns a list of Hall numbers for the subgraph induced by cells in
     cells."""
     size = partial_latin_square.size()
@@ -65,7 +67,7 @@ def symmetric_hall_numbers(partial_latin_square, cells):
     colours = range(1, size + 1)
     return _hall_numbers_(H, L, colours)
 
-def hall_subgraphs(partial_latin_square, cells, with_labels = False, format = 'png'):
+def subgraphs(partial_latin_square, cells, with_labels = False, format = 'png'):
     """Draw symmetric Hall subgraphs."""
     size = partial_latin_square.size()
     fixed = partial_latin_square.fixed_cells()
@@ -91,7 +93,7 @@ def hall_subgraphs(partial_latin_square, cells, with_labels = False, format = 'p
         else:
           raise "No such format"
 
-def is_hall_on_interval(pls, constant, exponent, n, m):
+def on_interval(pls, constant, exponent, n, m):
     def f(n, k):
         if k >= len(bin(n)) - 2:
             return False

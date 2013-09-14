@@ -1,6 +1,6 @@
 # Copyright Matthew Henderson 2013.
 # Created 18th December 2010.
-# Last updated: Wed Jun  5 16:48:03 BST 2013
+# Last updated: Sat Sep 14 14:35:05 BST 2013.
 
 from ryser.output import dict_to_string_simple
 from ryser.utils import cell, row_r
@@ -12,8 +12,11 @@ class Latin:
         self._size = size
         self._symbols = symbols
 
-    def __str__(self):
+    def __repr__(self):
         return dict_to_string_simple(self._P, self._size)
+
+    def __str__(self):
+        return self.__repr__()
 
     def __getitem__(self, key):
         return self._P[cell(key[0], key[1], self._size)]

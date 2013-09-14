@@ -1,83 +1,59 @@
-.. Created 18 December 2010. Last updated Wed Aug 22 11:32:06 BST 2012
+.. Created 18 December 2010. Last updated Sat Sep 14 14:34:40 BST 2013.
 
-========
 Tutorial
 ========
 
-Completing partial latin squares
-================================
+Example: Completing Partial Latin Squares
+-----------------------------------------
 
-Consider the following partial latin square.
+A *partial latin square* of :math:`n` is a :math:`n \times n` array with at
+most one symbol from :math:`\{1,\ldots,n\}` in every row and every column.
 
 .. math::
     
     \begin{array}{|c|c|c|}
-      \hline a & . & c \\
-      \hline b & c & . \\
-      \hline . & a & b \\ \hline
+      \hline 1 & . & 3 \\
+      \hline 2 & 3 & . \\
+      \hline . & 1 & 2 \\ \hline
     \end{array}
 
-To make use of Ryser components for completing partial latin squares, you first
-need to know how to create partial latin squares. The components for building
-partial latin square objects lie in the :py:mod:`designs` module. So, we need to 
-make names from that module available in the current workspace::
-
-    >>> from ryser.designs import Latin
+To create a partial latin square object we use a dictionary mapping cell labels
+to symbols.
      
-To build a partial latin square object we use a dictionary mapping cell labels
-to symbols. The mapping is completely general, you can use whatever labels you
-like and whatever symbols you like::     
-     
-    >>> P = { (0,0): 'a', (0,2): 'c', (1,0): 'b', (1,1): 'c', (2,1): 'a', (2,2): 'b' }
-           
-With this data in place we can now build a partial latin square object::
-    
-    >>> Latin(P, 3)
-     
-Notice how the dimensions of the latin square are given as a parameter to the
-constructor.      
+    >>> import ryser
+    >>> P = {(0,0): 1, (0,2): 3, (1,0): 2, (1,1): 3, (2,1): 1, (2,2): 2}
+    >>> L = ryser.designs.Latin(P, 3)
 
-Parallel Testing of Hall's Condition
-====================================
+Completing a partial latin square means filling the empty cells so that every
+row and column has exactly one of every symbol.
 
-In this section we demonstrate how to use components of Ryser to decide
-whether Hall's condition is satisfied for a certain partial latin square.
-We place a special emphasis on parallel testing and demonstrate some scripts
-which are available in Ryser to make it easy to create parallel jobs for the
-cloud (via PiCloud) or for high-performance clusters.
+Example: Hall Numbers
+---------------------
 
-.. code-block:: bash
+Here is a demo which computes Hall numbers.
 
-    $ time python counterexample_investigation.py 0 256 > output.txt
+    >>> L = ryser.examples.eg3
+    >>> L
+    |2|1|3|4|.|.|.|.|
+    |1|3|2|6|.|.|.|.|
+    |3|2|4|1|.|.|.|.|
+    |4|6|1|5|.|.|.|.|
+    |.|.|.|.|.|1|.|.|
+    |.|.|.|.|1|.|.|.|
+    |.|.|.|.|.|.|.|2|
+    |.|.|.|.|.|.|2|.|
+    >>> S = ryser.examples.fail4[0]
+    >>> hall_nums = ryser.hall.numbers(L, S)
+    >>> sym_hall_nums = ryser.hall.symmetric_numbers(L, S)
+    >>> print "Hall Numbers: {}".format(hall_nums)
+    Hall Numbers: [0, 1, 3, 3, 4, 4, 4, 4]
+    >>> print "Symmetric Hall Numbers: {}".format(sym_hall_nums)
+    Symmetric Hall Numbers: [0, 1, 2, 2, 3, 3, 4, 4]
 
-    real    0m9.357s
-    user    0m9.070s
-    sys     0m0.140s
-    $ grep False output.txt
-    $ wc -l output.txt
-    256 output.txt
-    $ head -n 1 output.txt
-    [45, 46, 47, 48, 57, 58, 59, 60, 69, 70, 71, 72, 81, 82, 83, 84, 93, 94, 95, 96] True
-    $ tail -n 1 output.txt
-    [45, 46, 47, 48, 57, 58, 59, 60, 69, 70, 71, 72, 81, 82, 83, 84, 93, 94, 95, 96, 107, 108, 119, 120, 105, 118, 131, 144] True
+Test Hall inequalities.
 
-Completing sudoku puzzles
-=========================
-
-In this section we discuss completing sudoku puzzles.
-
-Enumerating shidoku puzzles
-===========================
-
-In this section we build a simple experiment script to enumerate shidoku.
-
-Embedding latin rectangles
-==========================
-
-In this section we discuss embedding latin rectangles.
-
-Constructing magic squares
-==========================
-
-In this section we discuss magic squares.
+    >>> ryser.hall.inequality_on_cells(L, S)
+    True
+    >>> ryser.hall.symmetric_inequality_on_cells(L, S)
+    False
 
