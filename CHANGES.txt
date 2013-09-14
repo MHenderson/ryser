@@ -1,3 +1,4 @@
+v0.0.8, 13.09.13 -- README updates.
 v0.0.7, 13.04.15 -- Prototype implementation of completion of KF-PLS. Simplified output functions. Improved packaging.
 v0.0.6, 12.09.01 -- More efficient testing of Hall's Condition.
 v0.0.5, 12.08.22 -- Enhanced functionality for testing Hall's Condition.
