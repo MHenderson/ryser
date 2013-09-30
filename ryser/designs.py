@@ -1,34 +1,24 @@
 # Copyright Matthew Henderson 2013.
 # Created 18th December 2010.
-# Last updated: Mon Sep 30 14:56:17 BST 2013.
+# Last updated: Mon Sep 30 19:45:32 BST 2013.
 
 from ryser.output import dict_to_string_simple
-from ryser.utils import cell, row_r
+from ryser.utils import cell, row_r, alt, alt2
 
 class Latin:
 
-    def __init__(self, P, size, symbols = range(1,9), format = ''):
+    def __init__(self, P, size, symbols = None, format = ''):
+        self._size = size
         if format == 'alt':
-            L = {}
-            for i in P:
-                for j in P[i]:
-                    row = j[0]
-                    column = j[1]
-                    L[cell(row, column, size)] = i
-            self._P = L
+            self._P = alt(P, size)
         if format == 'alt2':
-            L = {}
-            for i in range(len(P)):
-                for j in P[i]:
-                    if P[i][j] != '.':
-                        row = i
-                        col = j
-                        L[cell(row, col, size)] = P[i][j]
-            self._P = L
+            self._P = alt2(P, size)
         else:
             self._P = P
-        self._size = size
-        self._symbols = symbols
+        if symbols == None:
+            self._symbols = range(1, size + 1)
+        else:
+            self._symbols = symbols
 
     def __repr__(self):
         return dict_to_string_simple(self._P, self._size)

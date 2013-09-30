@@ -2,6 +2,10 @@
 
 import unittest
 
+import ryser.designs
+
+from ryser.utils import from_file
+
 from ryser.examples import eg1, eg2, eg3, eg4, eg6
 from ryser.examples import fail1, fail2, fail3, fail4, fail6
 
@@ -28,7 +32,7 @@ class TestHallConditionOnCells(unittest.TestCase):
 
     def test_hall_inequality_on_cells(self):
         """Test function for testing Hall's inequality on cells."""
-        #self.__assert_false_hall_inequality_on_example(eg1, fail1)
+        self.__assert_false_hall_inequality_on_example(eg1, fail1)
         self.__assert_false_hall_inequality_on_example(eg2, fail2)
         self.__assert_true_hall_inequality_on_example(eg2, fail3)
         self.__assert_true_hall_inequality_on_example(eg3, fail4)

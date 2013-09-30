@@ -1,61 +1,17 @@
 # Copyright Matthew Henderson 2013
 # Created 1st April 2012.
-# Last updated: Mon Sep 30 14:56:28 BST 2013.
+# Last updated: Mon Sep 30 19:44:38 BST 2013.
 
 import itertools
 
 from ryser.designs import Latin
-from ryser.utils import rect_r, col_r, row_r
+from ryser.utils import rect_r, col_r, row_r, from_file
 
-""" 
-Example 1
+source1 = open('/home/matthew/workspace/ryser/data/eg1.txt', 'rb')
+source2 = open('/home/matthew/workspace/ryser/data/eg2.txt', 'rb')
 
-From "Completing Partial Latin Squares: Cropper's Question"
-     by Bobga, Goldwasser, Hilton and Johnson
-
- . . 7 3 5 . .
- . . . . 6 1 5
- . 6 . . . . 3
- 6 . . . . . .
- 4 . . . . . .
- 2 . 1 . . . .
- 3 4 2 . . . .
-
-"""
-
-import csv
-source = open('/home/matthew/workspace/ryser/data/examples.txt', 'rb')
-reader = csv.DictReader(filter(lambda row: row[0]!='#', source), range(7), delimiter=' ')
-eg1list = []
-for line in reader:
-    eg1list.append(line)
-
-eg1 = Latin(eg1list, size = 7, symbols = range(7), format = 'alt2')
-
-"""
-Example 2
-
- 6 1 2 3 . . . .
- 1 6 4 5 . . . .
- 2 4 6 1 . . . .
- 3 5 1 6 . . . .
- . . . . 6 1 . .
- . . . . 1 6 . .
- . . . . . . 6 2
- . . . . . . 2 6
-
-"""
-
-
-eg2 = Latin(
-      { 1:6,  2:1,  3:2,  4:3, \
-        9:1, 10:6, 11:4, 12:5, \
-       17:2, 18:4, 19:6, 20:1, \
-       25:3, 26:5, 27:1, 28:6, \
-       37:6, 38:1, \
-       45:1, 46:6, \
-       55:6, 56:2, \
-       63:2, 64:6 }, size = 8 )
+eg1 = Latin(from_file(source1, 7), size = 7, format = 'alt2')
+eg2 = Latin(from_file(source2, 8), size = 8, format = 'alt2')
 
 # Below are lists of lists of cells. Each list represents a list of subgraphs
 # for which Hall's condition or the symmetric Hall condition fails. They are
@@ -253,4 +209,5 @@ eg8 = Latin({ 1:3,  2:1,  3:7,  4:4,\
              17:7, 18:4, 19:6, 20:5,\
              25:4, 26:3, 27:5, 28:8,\
              38:3, 45:3, \
-             56:5, 63:5 }, 8)
+             56:5, 63:5 }, size = 8)
+

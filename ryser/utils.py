@@ -1,3 +1,5 @@
+import csv
+
 # Below, 'size' is the dimension of a latin square.
 # Rows and columns are labelled: 0, 1, ... , size - 1
 # Cells are labelled: 1, 2, ... , size^2
@@ -61,3 +63,31 @@ def list_assignment(partial_latin_square, size):
 
 def orthogonal_array(L, size):
     return [(i,j,L[i,j]) for i,j in range(size)]
+
+def from_file(source, size):
+    symbols = range(1, size + 1)
+    reader = csv.DictReader(filter(lambda row: row[0]!='#', source), symbols, delimiter=' ')
+    row_list = []
+    for row in reader:
+        row_list.append(row)
+    return row_list
+
+def alt(P, size):
+    L = {}
+    for i in P:
+        for j in P[i]:
+            row = j[0]
+            column = j[1]
+            L[cell(row, column, size)] = i
+    return L
+
+def alt2(P, size):
+    L = {}
+    for i in range(len(P)):
+        for j in P[i]:
+            if P[i][j] != '.':
+                row = i
+                col = j
+                L[cell(row, col, size)] = P[i][j]
+    return L
+
