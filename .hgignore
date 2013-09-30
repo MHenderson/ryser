@@ -11,3 +11,4 @@ build
 MANIFEST
 ryser.egg-info/*
 wiki
+nose-1.3.0-py2.7.egg/*

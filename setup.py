@@ -34,5 +34,7 @@ setup(
         "networkx >= 1.7.0",
         "vizing >= 0.0.11",
     ],
+    test_suite='nose.collector',
+    tests_require=['nose'],
 )
 
