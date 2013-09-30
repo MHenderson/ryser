@@ -1,6 +1,6 @@
 # Copyright Matthew Henderson 2013
 # Created 1st April 2012.
-# Last updated: Tue Mar 26 09:54:44 GMT 2013.
+# Last updated: Mon Sep 30 14:56:28 BST 2013.
 
 import itertools
 
@@ -23,15 +23,14 @@ From "Completing Partial Latin Squares: Cropper's Question"
 
 """
 
-eg1 = Latin(
-      {  3:7,  4:3,  5:5, \
-        12:6, 13:1, 14:5, \
-        16:6, 21:3, \
-        22:6, \
-        29:4, \
-        36:2, 38:1, \
-        43:3, 44:4, 45:2
-      }, size = 7 )
+import csv
+source = open('/home/matthew/workspace/ryser/data/examples.txt', 'rb')
+reader = csv.DictReader(filter(lambda row: row[0]!='#', source), range(7), delimiter=' ')
+eg1list = []
+for line in reader:
+    eg1list.append(line)
+
+eg1 = Latin(eg1list, size = 7, symbols = range(7), format = 'alt2')
 
 """
 Example 2

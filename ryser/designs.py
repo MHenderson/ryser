@@ -1,6 +1,6 @@
 # Copyright Matthew Henderson 2013.
 # Created 18th December 2010.
-# Last updated: Sat Sep 14 14:35:05 BST 2013.
+# Last updated: Mon Sep 30 14:56:17 BST 2013.
 
 from ryser.output import dict_to_string_simple
 from ryser.utils import cell, row_r
@@ -15,6 +15,15 @@ class Latin:
                     row = j[0]
                     column = j[1]
                     L[cell(row, column, size)] = i
+            self._P = L
+        if format == 'alt2':
+            L = {}
+            for i in range(len(P)):
+                for j in P[i]:
+                    if P[i][j] != '.':
+                        row = i
+                        col = j
+                        L[cell(row, col, size)] = P[i][j]
             self._P = L
         else:
             self._P = P
