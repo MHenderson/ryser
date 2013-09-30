@@ -30,5 +30,5 @@ def complete(P):
     G = latin_graph(P.size())
     L = list_assignment(P.fixed_cells(), P.size())
     C = vizing.colouring.list_colouring(G, L)
-    print Latin(C, P.size(), format = 'alt')
+    return Latin(C, P.size(), format = 'alt')
 
