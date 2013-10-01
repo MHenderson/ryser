@@ -1,6 +1,7 @@
+v0.0.11, 01.10.13 -- Examples are now data, not source.
 v0.0.10, 14.09.13 -- A prototype implementation of completion via Vizing.
-v0.0.9, 14.09.13 -- Improved tutorial. Corrections to scripts.
-v0.0.8, 13.09.13 -- README updates.
-v0.0.7, 13.04.15 -- Prototype implementation of completion of KF-PLS. Simplified output functions. Improved packaging.
-v0.0.6, 12.09.01 -- More efficient testing of Hall's Condition.
-v0.0.5, 12.08.22 -- Enhanced functionality for testing Hall's Condition.
+ v0.0.9, 14.09.13 -- Improved tutorial. Corrections to scripts.
+ v0.0.8, 13.09.13 -- README updates.
+ v0.0.7, 13.04.15 -- Prototype implementation of completion of KF-PLS. Simplified output functions. Improved packaging.
+ v0.0.6, 12.09.01 -- More efficient testing of Hall's Condition.
+ v0.0.5, 12.08.22 -- Enhanced functionality for testing Hall's Condition.

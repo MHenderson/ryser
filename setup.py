@@ -10,7 +10,7 @@ def readme():
 
 setup(
     name = 'ryser',
-    version = '0.0.10',
+    version = '0.0.11',
     packages = ['ryser',],
     description = "Latin Squares and Related Designs.",
     author = "Matthew Henderson",
