@@ -1,9 +1,10 @@
 # Copyright Matthew Henderson 2013.
 # Created 18th December 2010.
-# Last updated: Tue Oct  1 16:21:20 BST 2013.
+# Last updated: Tue Oct  1 17:13:02 BST 2013.
 
 from ryser.output import dict_to_string_simple
-from ryser.utils import cell, row_r, alt, alt2
+from ryser.utils import cell, row_r
+from ryser.utils import sim_2_csm, com_2_csm
 
 class Latin:
 
@@ -13,10 +14,10 @@ class Latin:
             self._symbols = range(1, size + 1)
         else:
             self._symbols = symbols
-        if format == 'alt':
-            self._P = alt(P, size)
-        elif format == 'alt2':
-            self._P = alt2(P, size)
+        if format == 'sim':
+            self._P = sim_2_csm(P, size)
+        elif format == 'com':
+            self._P = com_2_csm(P, size)
         else:
             self._P = P
 

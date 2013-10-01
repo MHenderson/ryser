@@ -1,5 +1,6 @@
 # Copyright Matthew Henderson 2013.
-# Created Tue Mar 26 10:02:38 GMT 2013. Last updated Sat Sep 14 19:07:08 BST 2013.
+# Created Tue Mar 26 10:02:38 GMT 2013.
+# Last updated Tue Oct  1 17:12:45 BST 2013.
 
 from ryser.designs import Latin
 from ryser.graphs import latin_graph
@@ -30,5 +31,5 @@ def complete(P):
     G = latin_graph(P.size())
     L = list_assignment(P.fixed_cells(), P.size())
     C = vizing.colouring.list_colouring(G, L)
-    return Latin(C, P.size(), format = 'alt')
+    return Latin(C, P.size(), format = 'sim')
 

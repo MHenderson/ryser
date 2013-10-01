@@ -1,7 +1,7 @@
 import unittest
 
 from ryser.utils import list_assignment
-from ryser.utils import alt, alt2
+from ryser.utils import sim_2_csm, com_2_csm
 
 from ryser.examples import eg1
 
@@ -78,19 +78,19 @@ Z2 = [{2:7,3:3,4:5},
       {0:2,2:1},
       {0:3,1:4,2:2}]
 
-class TestA(unittest.TestCase):
-    def test_A(self):
-        self.assertEqual(P2, alt(X1, 2))
-        self.assertEqual(P3, alt(XX1, 3))
-        self.assertEqual(P4, alt(Y1, 3))
-        self.assertEqual(P5, alt(Z1, 7))
+class TestSimToCsm(unittest.TestCase):
+    def test_sim_2_csm(self):
+        self.assertEqual(P2, sim_2_csm(X1, 2))
+        self.assertEqual(P3, sim_2_csm(XX1, 3))
+        self.assertEqual(P4, sim_2_csm(Y1, 3))
+        self.assertEqual(P5, sim_2_csm(Z1, 7))
 
-class TestA2(unittest.TestCase):
-    def test_A2(self):
-        self.assertEqual(P2, alt2(X2, 2))
-        self.assertEqual(P3, alt2(XX2, 3))
-        self.assertEqual(P4, alt2(Y2, 3))
-        self.assertEqual(P5, alt2(Z2, 7))
+class TestComToCsm(unittest.TestCase):
+    def test_com_2_csm(self):
+        self.assertEqual(P2, com_2_csm(X2, 2))
+        self.assertEqual(P3, com_2_csm(XX2, 3))
+        self.assertEqual(P4, com_2_csm(Y2, 3))
+        self.assertEqual(P5, com_2_csm(Z2, 7))
 
 if __name__ == '__main__':
     unittest.main()

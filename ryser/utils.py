@@ -64,7 +64,7 @@ def list_assignment(partial_latin_square, size):
 def orthogonal_array(L, size):
     return [(i,j,L[i,j]) for i,j in range(size)]
 
-def alt(P, size):
+def sim_2_csm(P, size):
     """Fixed cells from a list colouring.
 
     Convert a symbols-to-(row,col) pairs dictionary to a cell-label-to-symbol
@@ -78,7 +78,7 @@ def alt(P, size):
             L[cell(row, column, size)] = int(i)
     return L
 
-def alt2(P, size):
+def com_2_csm(P, size):
     """Fixed cells from a list of row dictionaries.
 
     Convert a list of column-labels-to-symbols dictionaries to a

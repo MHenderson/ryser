@@ -1,6 +1,5 @@
 # Created Tue Oct  1 16:25:40 BST 2013.
-# Last updated Mon Mar 25 16:31:47 GMT 2013.
-
+# Last updated: Tue Oct  1 17:13:16 BST 2013.
 import csv
 
 import ryser
@@ -10,5 +9,5 @@ def latin_from_file(source, size):
     row_list = []
     for row in reader:
         row_list.append(row)
-    return ryser.designs.Latin(row_list, size = size, format = 'alt2')
+    return ryser.designs.Latin(row_list, size = size, format = 'com')
 
