@@ -9,16 +9,16 @@ class Latin:
 
     def __init__(self, P, size, symbols = None, format = ''):
         self._size = size
-        if format == 'alt':
-            self._P = alt(P, size)
-        if format == 'alt2':
-            self._P = alt2(P, size)
-        else:
-            self._P = P
         if symbols == None:
             self._symbols = range(1, size + 1)
         else:
             self._symbols = symbols
+        if format == 'alt':
+            self._P = alt(P, size)
+        elif format == 'alt2':
+            self._P = alt2(P, size)
+        else:
+            self._P = P
 
     def __repr__(self):
         return dict_to_string_simple(self._P, self._size)
