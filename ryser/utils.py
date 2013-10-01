@@ -65,29 +65,38 @@ def orthogonal_array(L, size):
     return [(i,j,L[i,j]) for i,j in range(size)]
 
 def from_file(source, size):
-    symbols = range(1, size + 1)
-    reader = csv.DictReader(filter(lambda row: row[0]!='#', source), symbols, delimiter=' ')
+    reader = csv.DictReader(filter(lambda row: row[0]!='#', source), range(size), delimiter=' ')
     row_list = []
     for row in reader:
         row_list.append(row)
     return row_list
 
 def alt(P, size):
+    """Fixed cells from a list colouring.
+
+    Convert a symbols-to-(row,col) pairs dictionary to a cell-label-to-symbol
+    dictionary.
+    """
     L = {}
     for i in P:
         for j in P[i]:
             row = j[0]
             column = j[1]
-            L[cell(row, column, size)] = i
+            L[cell(row, column, size)] = int(i)
     return L
 
 def alt2(P, size):
+    """Fixed cells from a list of row dictionaries.
+
+    Convert a list of column-labels-to-symbols dictionaries to a
+    cell-label-to-symbol dictionary.
+    """
     L = {}
     for i in range(len(P)):
         for j in P[i]:
             if P[i][j] != '.':
                 row = i
                 col = j
-                L[cell(row, col, size)] = P[i][j]
+                L[cell(row, col, size)] = int(P[i][j])
     return L
 
