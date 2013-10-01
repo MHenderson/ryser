@@ -64,13 +64,6 @@ def list_assignment(partial_latin_square, size):
 def orthogonal_array(L, size):
     return [(i,j,L[i,j]) for i,j in range(size)]
 
-def from_file(source, size):
-    reader = csv.DictReader(filter(lambda row: row[0]!='#', source), range(size), delimiter=' ')
-    row_list = []
-    for row in reader:
-        row_list.append(row)
-    return row_list
-
 def alt(P, size):
     """Fixed cells from a list colouring.
 

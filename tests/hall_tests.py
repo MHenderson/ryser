@@ -4,8 +4,6 @@ import unittest
 
 import ryser.designs
 
-from ryser.utils import from_file
-
 from ryser.examples import eg1, eg2, eg3, eg4, eg6
 from ryser.examples import fail1, fail2, fail3, fail4, fail6
 

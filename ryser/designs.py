@@ -1,6 +1,6 @@
 # Copyright Matthew Henderson 2013.
 # Created 18th December 2010.
-# Last updated: Mon Sep 30 19:45:32 BST 2013.
+# Last updated: Tue Oct  1 16:21:20 BST 2013.
 
 from ryser.output import dict_to_string_simple
 from ryser.utils import cell, row_r, alt, alt2

@@ -1,17 +1,18 @@
 # Copyright Matthew Henderson 2013
 # Created 1st April 2012.
-# Last updated: Mon Sep 30 19:44:38 BST 2013.
+# Last updated: Tue Oct  1 16:28:02 BST 2013.
 
 import itertools
 
 from ryser.designs import Latin
-from ryser.utils import rect_r, col_r, row_r, from_file
+from ryser.input import latin_from_file
+from ryser.utils import rect_r, col_r, row_r
 
 source1 = open('/home/matthew/workspace/ryser/data/eg1.txt', 'rb')
 source2 = open('/home/matthew/workspace/ryser/data/eg2.txt', 'rb')
 
-eg1 = Latin(from_file(source1, 7), size = 7, format = 'alt2')
-eg2 = Latin(from_file(source2, 8), size = 8, format = 'alt2')
+eg1 = latin_from_file(source1, 7)
+eg2 = latin_from_file(source2, 8)
 
 # Below are lists of lists of cells. Each list represents a list of subgraphs
 # for which Hall's condition or the symmetric Hall condition fails. They are

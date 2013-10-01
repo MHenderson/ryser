@@ -1,10 +1,9 @@
 # Copyright Matthew Henderson 2013.
-# Created 18.12.2010 (Chandlers Ford). Last updated Fri Sep 13 17:15:35 BST 2013
+# Created 18.12.2010 (Chandlers Ford).
+# Last updated Tue Oct  1 16:22:01 BST 2013.
 
 import unittest
 import ryser.designs
-
-from ryser.utils import from_file
 
 from ryser.output import dict_to_string, dict_to_string_simple, row_string
 
