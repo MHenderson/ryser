@@ -10,7 +10,7 @@ from vizing.hall import hall_subgraph
 from vizing.utils import powerset
 
 from ryser.graphs import latin_graph, symmetric_latin_graph
-from ryser.utils import list_assignment, vertex 
+from ryser.utils import list_assignment, vertex, rect_r
 
 import ryser.examples
 
@@ -124,4 +124,26 @@ def hiltons_claim():
     """
     arguments = docopt.docopt(hiltons_claim.__doc__, version='hiltons_claim 1.0')
     return hiltons_claim_(int(arguments['<start>']), int(arguments['<end>']))
+
+def counterexample_investigation_(n, m):
+    TR = ryser.utils.rect_r(9, 96, 12)
+    B1 = ryser.utils.rect_r(107, 120, 12)
+    D = [105, 118, 131, 144]
+    constant = []
+    exponent = TR + B1 + D
+    return on_interval(ryser.examples.eg5, constant, exponent, n, m)
+
+def counterexample_investigation():
+    """Searching for a counterexample to ...
+
+    Usage:
+     counterexample_investigation [options] [--] <start> <end>
+
+    Options:
+     -h --help     Show this screen.
+     --version     Show version.
+    """
+    arguments = docopt.docopt(counterexample_investigation.__doc__, version='counterexample_investigation 1.0')
+    return counterexample_investigation_(int(arguments['<start>']), int(arguments['<end>']))
+
 

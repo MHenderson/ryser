@@ -10,9 +10,11 @@ from ryser.utils import rect_r, col_r, row_r
 
 source1 = open('/home/matthew/workspace/ryser/data/eg1.txt', 'rb')
 source2 = open('/home/matthew/workspace/ryser/data/eg2.txt', 'rb')
+source5 = open('/home/matthew/workspace/ryser/data/eg5.txt', 'rb')
 
 eg1 = latin_from_file(source1, 7)
 eg2 = latin_from_file(source2, 8)
+eg5 = latin_from_file(source5, 12)
 
 # Below are lists of lists of cells. Each list represents a list of subgraphs
 # for which Hall's condition or the symmetric Hall condition fails. They are
