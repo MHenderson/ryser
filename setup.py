@@ -15,8 +15,10 @@ setup(
     description = "Latin Squares and Related Designs.",
     author = "Matthew Henderson",
     author_email = "matthew.james.henderson@gmail.com",
-    scripts = ['bin/counterexample_investigation.py',
-               'bin/hiltons_claim.py'],
+    scripts = ['bin/counterexample_investigation.py',],
+    entry_points = {
+        'console_scripts': ['hiltons_claim=ryser.hall:hiltons_claim'],
+        },
     url = "http://packages.python.org/ryser/",
     download_url = "http://pypi.python.org/pypi/ryser/",
     keywords = [""],

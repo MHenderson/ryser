@@ -1,5 +1,7 @@
 # Copyright Matthew Henderson 2013.
 
+import docopt
+
 from itertools import islice
 
 from vizing.hall import hall_inequality_induced_by
@@ -9,6 +11,8 @@ from vizing.utils import powerset
 
 from ryser.graphs import latin_graph, symmetric_latin_graph
 from ryser.utils import list_assignment, vertex 
+
+import ryser.examples
 
 try:
     import matplotlib.pyplot as plt
@@ -104,4 +108,20 @@ def on_interval(pls, constant, exponent, n, m):
         Y = constant + list(X)
         result = inequality_on_cells(pls, Y)
         print Y, result
+
+def hiltons_claim_(n, m, S = [6,7,11,15,18,19,20]):
+    return on_interval(ryser.examples.eg1, ryser.examples.fail1[0], S, n, m)
+
+def hiltons_claim():
+    """Test Hilton's claim from ...
+
+    Usage:
+     hiltons_claim [options] [--] <start> <end>
+
+    Options:
+     -h --help     Show this screen.
+     --version     Show version.
+    """
+    arguments = docopt.docopt(hiltons_claim.__doc__, version='hiltons_claim 1.0')
+    return hiltons_claim_(int(arguments['<start>']), int(arguments['<end>']))
 
