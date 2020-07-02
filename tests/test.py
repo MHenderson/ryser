@@ -2,14 +2,15 @@
 Unit testing of the automatic batch processing application
 """
 import unittest
+import ryser
  
-class AppTests(unittest.TestCase):
+class LatinTests(unittest.TestCase):
     def test_app(self):
         """Simple Tests"""
-        self.assertEqual(1, 1)
-        self.assertNotEqual(2, 5)
+        a = ryser.Latin({1:1, 12:3}, 9)
+        self.assertEqual(a.fixed_cells(), {1:1, 12:3})
  
 def suite():
     _suite = unittest.TestSuite()
-    _suite.addTest(AppTests('test_app'))
+    _suite.addTest(LatinTests('test_app'))
     return _suite
