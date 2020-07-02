@@ -1,5 +1,3 @@
-import csv
-
 def row_string(fixed, size, row, col_sep='|', padding=0):
     """
     Converts a dict of fixed cells to a string.

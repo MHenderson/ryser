@@ -1,7 +1,3 @@
-# Matthew Henderson, 2012
-# Created: Wed Aug  8 15:37:51 BST 2012.
-# Last updated: Mon Apr 15 20:17:58 BST 2013.
-
 from setuptools import setup
 
 def readme():
@@ -12,7 +8,7 @@ setup(
     name = 'ryser',
     version = '0.0.11',
     packages = ['ryser',],
-    description = "Latin Squares and Related Designs.",
+    description = "Latin squares and related designs.",
     author = "Matthew Henderson",
     author_email = "matthew.james.henderson@gmail.com",
     url = "http://packages.python.org/ryser/",
