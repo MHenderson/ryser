@@ -15,10 +15,6 @@ setup(
     description = "Latin Squares and Related Designs.",
     author = "Matthew Henderson",
     author_email = "matthew.james.henderson@gmail.com",
-    entry_points = {
-        'console_scripts': ['hiltons_claim=ryser.hall:hiltons_claim',
-                            'counterexample_investigation=ryser.hall:counterexample_investigation'],
-        },
     url = "http://packages.python.org/ryser/",
     download_url = "http://pypi.python.org/pypi/ryser/",
     keywords = [""],
@@ -32,10 +28,6 @@ setup(
         ],
     license = 'LICENSE.txt',
     long_description = readme(),
-    install_requires=[
-        "networkx >= 1.7.0",
-        "vizing >= 0.0.11",
-    ],
     test_suite='nose.collector',
     tests_require=['nose'],
 )
