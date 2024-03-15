@@ -1,3 +1,3 @@
 # ryser
  
-Latin Squares and Related Designs
+Latin squares and related designs
