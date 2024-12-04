@@ -1,12 +1,13 @@
 [tool.poetry]
 name = "ryser"
-version = "0.1.0"
+version = "0.1.0.9001"
 description = "Latin squares and related designs."
 authors = ["Matthew Henderson <matthew.james.henderson@gmail.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.10"
+networkx = "^3.4.2"
 
 
 [tool.poetry.group.test.dependencies]
@@ -16,7 +17,3 @@ pytest = "^8.1.1"
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
-[tool.pytest.ini_options]
-pythonpath = [
-  "."
-]

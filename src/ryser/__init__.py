@@ -1,3 +1,5 @@
+import networkx as nx
+
 def row_string(fixed, size, row, col_sep='|', padding=0):
     """
     Converts a dict of fixed cells to a string.
@@ -87,12 +89,12 @@ def list_assignment(partial_latin_square, size):
         if i in P.keys():
             L[row(i,size),col(i,size)] = [P[i]]
         else:
-            L[row(i,size),col(i,size)] = range(1, size + 1)
+            L[row(i,size),col(i,size)] = list(range(1, size + 1))
     # update lists (remove used symbols from lists of same row/col)
     for i in range(1, size**2 + 1):
         if i in P.keys():
             # then remove P[i] from any list of a cell not in P from the same row/col
-            for j in row_r(i, size) + col_r(i, size):
+            for j in list(row_r(i, size)) + list(col_r(i, size)):
                 if j not in P.keys():
                     if P[i] in L[row(j, size), col(j, size)]:
                         L[row(j, size), col(j, size)].remove(P[i])
@@ -130,57 +132,20 @@ def com_2_csm(P, size):
                 L[cell(row, col, size)] = int(P[i][j])
     return L
 
-class Latin:
 
-    def __init__(self, P, size, symbols = None, format = ''):
-        self._size = size
-        if symbols == None:
-            self._symbols = range(1, size + 1)
-        else:
-            self._symbols = symbols
-        if format == 'sim':
-            self._P = sim_2_csm(P, size)
-        elif format == 'com':
-            self._P = com_2_csm(P, size)
-        else:
-            self._P = P
+def pls_list_colouring_problem(fixed, size):
+  """
+  Return a complete digraph (including self-loops on every node) with a list-assignment
+  to edges such that the list on edge (i, j) is the set of all symbols not used in row i
+  or column j in the partial latin square represented by the input dictionary.
 
-    def __repr__(self):
-        return dict_to_string_simple(self._P, self._size)
-
-    def __str__(self):
-        return self.__repr__()
-
-    def __getitem__(self, key):
-        return self._P[cell(key[0], key[1], self._size)]
-
-    def size(self):
-        return self._size
-
-    def symbols(self):
-        return self._symbols
-
-    def row_presences(self, row_index):
-        result = []
-        first_cell = cell(row_index, 1, self._size)
-        row = row_r(first_cell, self._size)
-        for cell_ in row:
-            symbol = self._P.get(cell_)
-            if symbol!=None:
-                result.append(symbol)
-        return result
-
-    def row_absences(self, row_index):
-        result = self.symbols()[:]
-        presences = self.row_presences(row_index)
-        for x in presences:
-            if x in result:
-               result.remove(x)
-        return result
-
-    def fixed_cells(self):
-        return self._P
-
-    def extend(self, disjoint_fixed):
-        self._P.update(disjoint_fixed)
+  :param fixed: A dictionary of filled cells of a partial latin square.
+  :param size: Number of rows and columns in the completed latin square.
+  :return A complete digraph with edge list-assignment representing a partial latin square completion problem.
+  """
+  G = nx.complete_graph(size, create_using = nx.DiGraph)
+  for node in G.nodes():
+    G.add_edge(node, node)
+  nx.set_edge_attributes(G, list_assignment(fixed, size), "permissible")
+  return(G)
 
