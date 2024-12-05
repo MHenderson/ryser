@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "ryser"
-version = "0.1.0.9001"
+version = "0.2.0"
 description = "Latin squares and related designs."
 authors = ["Matthew Henderson <matthew.james.henderson@gmail.com>"]
 readme = "README.md"
